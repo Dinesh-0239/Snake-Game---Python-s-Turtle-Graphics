@@ -1,6 +1,6 @@
 # Snake-Game---Python-s-Turtle-Graphics
 
-***-------------------------------------------------Snake Game------------------------------------------------***
+***-------------------------------------------------Snake's Survival------------------------------------------------***
 Date:-  05/07/2023
 Developer:-  Dinesh Singh from Allahabad
 
@@ -10,4 +10,5 @@ snake from hitting the wall and hitting snake's own body.
 
 Technology Used:-  This project is build using OPPs feature of Python and  Python's Turtle Graphics.
 
-![image](https://github.com/Dinesh-0239/Snake-Game---Python-s-Turtle-Graphics/assets/114934305/c4215216-3c0d-4c6b-9c63-69b43ae2fb10)
+![image](https://github.com/Dinesh-0239/Snake-Game---Python-s-Turtle-Graphics/assets/114934305/86f1f9da-9d0e-4ffe-8cc4-98b127fc9140)
+
