@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------------------------------------------
-#***-------------------------------------------------Snake's Survival------------------------------------------------***
+#***-------------------------------------------------Snake's Survival-----------------------------------------------***
 """
 Date:-  05/07/2023
 Developer:-  Dinesh Singh from Allahabad
@@ -37,15 +37,14 @@ playground.cv._rootwindow.resizable(False,False)
 playground.tracer(0) #Animation is off until we call update()
 #-----------------------------------------------------------------------------------------------------------------
 # TODO 11: intilising snake speed. increase amount and points
-game_level = {"easy":[0.3,0.0003,1],"normal":[0.1,0.0001,3],"hard":[0.08,0.0008,5]}
+game_level = {"easy":[0.3,1],"normal":[0.1,3],"hard":[0.08,5]}
 #-----------------------------------------------------------------------------------------------------------------
 # TODO 12: asking user for game difficulty
 difficulty = ""
 while difficulty not in list(game_level.keys()):
     difficulty = playground.textinput("Difficulty level","Select a difficulty level: easy/normal/hard: ").lower()
-start_speed = game_level[difficulty][0]
-inc_speed = game_level[difficulty][1]
-add_points = game_level[difficulty][2]
+snake_speed = game_level[difficulty][0]
+add_points = game_level[difficulty][1]
 #-----------------------------------------------------------------------------------------------------------------
 #TODO 3: Creating a snake body
 snake = Snake()
@@ -67,17 +66,13 @@ playground.onkey(fun=snake.right,key="Right")
 game_is_on = True
 while game_is_on:
     playground.update()
-    if start_speed <= 0:
-        start_speed = 0.01
-    sleep(start_speed)
+    sleep(snake_speed)
     snake.move()
     #TODO 7: Detect the collision of the snake with food
     if snake.snake_head.distance(food) < 20 :
         food.new_food(snake.snake_body)
         snake.grow_snake()
         scoreboard.get_scoreboard(add_points)
-        if int(start_speed) >= 0:
-            start_speed -= inc_speed
     #TODO 9: Detect Collision with wall
     if snake.snake_head.xcor() > RIGHT_BOUNDARY or snake.snake_head.xcor() < LEFT_BOUNDARY or snake.snake_head.ycor() > \
             TOP_BOUNDARY or snake.snake_head.ycor() < BOTTOM_BOUNDARY:
