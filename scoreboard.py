@@ -10,6 +10,9 @@ class Scoreboard(Turtle):
         self.score = 0
         self.update_scoreboard()
 
+    def get_score(self):
+        return self.score
+    
     def update_scoreboard(self):
         """Update Scoreboard"""
         self.write(f"Score = {self.score}\n", align="center", font=("Courier", 14, "bold"))
