@@ -17,6 +17,7 @@ from turtle import Screen
 from time import sleep
 from food import Food
 from scoreboard import Scoreboard
+from highscore import Highscore
 #-----------------------------------------------------------------------------------------------------------------
 # TODO 1(b): Creating Constant
 LEFT_BOUNDARY = -290
@@ -55,6 +56,9 @@ food = Food(snake.snake_body)
 #TODO 8: Creating score board
 scoreboard = Scoreboard()
 #-----------------------------------------------------------------------------------------------------------------
+#TODO 11: Create object for highscore
+highscore = Highscore(difficulty)
+#-----------------------------------------------------------------------------------------------------------------
 #TODO 5: Controlling the Snake
 playground.listen()
 playground.onkey(fun=snake.up,key="Up")
@@ -73,6 +77,10 @@ while game_is_on:
         food.new_food(snake.snake_body)
         snake.grow_snake()
         scoreboard.get_scoreboard(add_points)
+        #TODO 11: Check and update for high score
+        if scoreboard.get_score() > highscore.get_highscore(difficulty):
+            highscore.update_highscore(difficulty,scoreboard.get_score()) 
+            highscore.display_highscore(difficulty)
     #TODO 9: Detect Collision with wall
     if snake.snake_head.xcor() > RIGHT_BOUNDARY or snake.snake_head.xcor() < LEFT_BOUNDARY or snake.snake_head.ycor() > \
             TOP_BOUNDARY or snake.snake_head.ycor() < BOTTOM_BOUNDARY:
